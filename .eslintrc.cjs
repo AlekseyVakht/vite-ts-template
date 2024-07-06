@@ -3,16 +3,24 @@ module.exports = {
   env: { browser: true, es2020: true },
   extends: [
     "airbnb",
-    "prettier:recommended",
+    "airbnb-typescript",
+    "prettier",
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:jsx-a11y",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended-type-checked",
+    "plugin:react/jsx-runtime",
+    "plugin:jsx-a11y/recommended",
     "plugin:prettier/recommended",
     "plugin:react-hooks/recommended",
   ],
   ignorePatterns: ["dist", ".eslintrc.cjs"],
   parser: "@typescript-eslint/parser",
-  plugins: ["react-refresh"],
+  parserOptions: {
+    ecmaVersion: "latest",
+    sourceType: "module",
+    project: "./tsconfig.json",
+  },
+  plugins: ["react", "prettier", "@typescript-eslint", "jsx-a11y"],
   rules: {
     "react-refresh/only-export-components": [
       "warn",
